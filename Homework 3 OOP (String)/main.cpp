@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 using std::cin;
 using std::cout;
@@ -8,8 +8,8 @@ using std::endl;
 
 class String
 {
-	char* str; // Указатель на строку динамической памяти 
-	int size; // Размер строки 
+	char* str; // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂРѕРєСѓ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ РїР°РјСЏС‚Рё 
+	int size; // Р Р°Р·РјРµСЂ СЃС‚СЂРѕРєРё 
 public:
 
 	const char* get_str()const
@@ -40,7 +40,7 @@ public:
 	{
 		this->size = strlen(str) + 1;
 		this->str = new char[size] {};
-		strcpy_s(this->str, size, str);// копируем строку (string copy)
+		strcpy_s(this->str, size, str);// РєРѕРїРёСЂСѓРµРј СЃС‚СЂРѕРєСѓ (string copy)
 		cout << "Constructor:\t\t" << this << endl;
 	}
 	String(const String& other)
