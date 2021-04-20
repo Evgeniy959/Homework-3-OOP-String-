@@ -77,6 +77,15 @@ public:
 		return *this = *this + other;
 	}
 
+	const char& operator[](int i) const
+	{
+		return this -> str[i];
+	}
+	char& operator[](int i) 
+	{
+		return this->str[i];
+	}
+
 	//			Methods:
 	void print() const
 	{
@@ -94,11 +103,12 @@ String operator+(const String& left, const String& right)
 {
 	String result(left.get_size() + right.get_size() - 1);	//-1 óáèðàåò ëèøíèé íîëü íà êîíöå
 	for (int i = 0; i < left.get_size(); i++)
-		*(result.get_str() + i) = *(left.get_str() + i);
+		//*(result.get_str() + i) = *(left.get_str() + i);
+		result[i] = left[i];
 	for (int i = 0; i < right.get_size(); i++)
-		result.get_str()[i + left.get_size() - 1] = right.get_str()[i];
+		//result.get_str()[i + left.get_size() - 1] = right.get_str()[i];
+		result[i + left.get_size() - 1] = right[i];
 	return result;
-	//		CPU/RAM
 }
 
 //#define CONSTRUCTORS_CHECK
@@ -138,7 +148,7 @@ void main()
 	String str1 = "Hello";
 	String str2 = "World";
 	cout << delimiter << endl;
-	String str3 = str1 + str2;//Operator + áóäåò âûïîëíÿòü êîíêàòåíàöèþ (ñëèÿíèå, îáúåäèíåíèå) ñòðîê
+	String str3 = str1 + " " + str2;//Operator + áóäåò âûïîëíÿòü êîíêàòåíàöèþ (ñëèÿíèå, îáúåäèíåíèå) ñòðîê
 	cout << delimiter << endl;
 	cout << str3 << endl;
 
@@ -150,10 +160,4 @@ void main()
 	//String str3 = str1;//Copy constructor
 	//String str4;
 	//str4 = str2;	//Operator=
-
-	int a = 2;
-	int* pa = &a;
-	int** ppa = &pa;
-	int*** pppa = &ppa;
-	cout << ***pppa << endl;
 }
